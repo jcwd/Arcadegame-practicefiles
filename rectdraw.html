@@ -15,8 +15,12 @@
 
         // ctx.strokeRect(50,50,50,50);
 
-        ctx.strokeStyle = "#33cc33";
-        ctx.fillStyle = "blue";
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "white";
+
+        ctx.font = "36pt serif";
+        ctx.lineWidth = 3;
+
 
         ctx.beginPath();
         ctx.moveTo(50,50);
@@ -33,7 +37,8 @@
         ctx.lineTo(75,75);
         ctx.fill();
 
-        ctx.fillText("Hello Udacity!", 50, 10);
+        ctx.strokeText("Canvas Memes", 100, 100);
+        ctx.fillText("Canvas Memes", 100, 100);
 
 
 
