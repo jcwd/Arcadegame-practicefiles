@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>working with an image</title>
+    <!-- goal is to
+    1) Creat a canvas2DRenderingContext
+    2) call getImageData to retrieve the pixels in the canvas
+    3) Change every 10th Pixel to a solid green color -->
+</head>
+<body>
+<!-- creating the canvas and adding a red border to see it -->
+    <canvas id="c" width="200" height="200" style="border:1px solid red;"></canvas>
+    <script type="text/javascript">
+        var c = document.querySelector("#c");
+        var ctx = c.getContext("2d");
+
+// getting the imagedata and figuring out how many pixels are in the array//
+        var data=ctx.getImageData(0,0,200,200);
+        console.log(data);
+
+// changing every 10th Pixel to green//
+        function paintGreen(imageData) {
+            var numPixels = imageData.data.length / 4 ;
+                for (var i = 0; i < numPixels; i++) {
+                    if (i % 10 === 0) {
+                        imageData.data[i * 4 + 1] = 255;
+                        imageData.data[i * 4 + 3] = 255;
+                    }
+                }
+            ctx.putImageData(imageData,0,0);
+        }
+        paintGreen(data);
+
+
+
+    </script>
+</body>
+</html>
